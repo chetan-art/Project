@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>Show Teacher Details|Python HUb</title>
+{% endblock title %}
+{% block body %}
+<table class="table my-5">
+<tr>
+  <th scope="col">Name</th>
+   <th scope="col">Class</th>
+  <th scope="col">Mobile</th>
+  <th scope="col">Email</th>
+</tr>
+{% for r in x %}
+<tr>
+  <td scope="row"> {{ r.Name }}</td>
+  <td scope="row"> {{ r.Class }}</td>
+  <td scope="row"> {{ r.Mobile }}</td>
+  <td scope="row"> {{ r.Email }}</td>
+  <td>
+    <a href="" class="btn btn-info">Edit</a>
+    <form action="" method="POST" class="d-inline">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-warning" value="Delete">
+    </form>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock body %}

@@ -1,0 +1,21 @@
+{% extends 'Base.html' %}
+{% load crispy_forms_tags %}
+{%  block body %}
+
+    <div class="row mx-4">
+        <div class="col-sm-8 offset-2">
+            <h2 class="alert alert-info">Edit your Products</h2>
+            <form method="POST" action="" class="form-control">
+                {% csrf_token%}
+                {{form|crispy}}
+                <br>
+                <input value="Edit" type="submit" class="btn btn-info">
+            </form>
+         </div>
+    </div>
+
+
+
+
+{% endblock body %}
+

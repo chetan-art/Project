@@ -1,0 +1,30 @@
+{% extends 'Base.html' %}
+{% block body %}
+<table class="table my-5">
+<tr>
+  <th scope="col">Name</th>
+  <th scope="col">Father Name</th>
+  <th scope="col">Mobile</th>
+  <th scope="col">Class</th>
+  <th scope="col">Status</th>
+  <th scope="col">Action</th>
+</tr>
+{% for r in x %}
+<tr>
+  <td scope="row"> {{ r.Name }}</td>
+  <td scope="row"> {{ r.Father_Name }}</td>
+  <td scope="row"> {{ r.Mobile }}</td>
+  <td scope="row"> {{ r.Class }}</td>
+  <td scope="row"> {{ r.Status }}</td>
+  <td>
+    <a href="{% url 'editdata' r.id %}" class="btn btn-info">Edit</a></td>
+  <td>
+    <form action="{%url 'deletedata' r.id %}" method="POST" class="d-inline">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-warning" value="Delete">
+    </form>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock body %}
